@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# Remove question mark from URL
+RewriteCond %{THE_REQUEST} \? 
+RewriteRule ^(.*)$ /$1? [L,R=301]
+
 # Redirect requests to the public folder
 RewriteCond %{REQUEST_URI} !^/public/
 RewriteRule ^(.*)$ /public/$1 [L,QSA]
